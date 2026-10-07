@@ -1,0 +1,149 @@
+
+Hadji hassanali Maria <hadjihassanalimaria@gmail.com>
+12:05 (il y a 15 minutes)
+À moi
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mon Portfolio</title>
+  <style>
+    /* CSS : Style et mise en page */
+    :root {
+      --bg-color: #0d1117;
+      --card-bg: #161b22;
+      --border-color: #30363d;
+      --text-color: #c9d1d9;
+      --accent-color: #238636;
+      --accent-hover: #2ea043;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    h1 {
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    /* Bouton pour télécharger le PDF */
+    .btn-download {
+      display: inline-block;
+      background-color: var(--accent-color);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.2s;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .btn-download:hover {
+      background-color: var(--accent-hover);
+    }
+
+    /* Galerie de projets */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      max-width: 900px;
+      width: 100%;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 15px;
+    }
+
+    .card-title {
+      font-size: 1.2rem;
+      color: #ffffff;
+      margin-top: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Mon Portfolio</h1>
+    <p>Bienvenue sur mon site internet !</p>
+    
+    <!-- Bouton HTML pour télécharger ton CV au format PDF -->
+    <a href="mon-cv.pdf" download="Mon_CV.pdf" class="btn-download">
+      📄 Télécharger mon CV (PDF)
+    </a>
+  </header>
+
+  <main class="projects-grid" id="projects-container">
+    <!-- Les projets s'affichent ici grâce au JS -->
+  </main>
+
+  <script>
+    // JS : Gestion dynamique des projets
+    const mesProjets = [
+      {
+        titre: "Projet 1",
+        description: "Présentation de mon premier projet.",
+        image: "photo1.jpg"
+      },
+      {
+        titre: "Suivi de lecture digital",
+        description: "Application de suivi pour la lecture.",
+        image: "photo2.jpg"
+      }
+    ];
+
+    const container = document.getElementById('projects-container');
+
+    // Affichage des cartes projets
+    mesProjets.forEach(projet => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      
+      card.innerHTML = `
+        <img src="${projet.image}" alt="${projet.titre}">
+        <div class="card-content">
+          <h3 class="card-title">${projet.titre}</h3>
+          <p>${projet.description}</p>
+        </div>
+      `;
+      
+      container.appendChild(card);
+    });
+  </script>
+
+</body>
+</html>
